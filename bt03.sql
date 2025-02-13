@@ -1,5 +1,5 @@
 -- 1,
-USE `world`;
+USE world;
 
 -- 2,
 DELIMITER //
