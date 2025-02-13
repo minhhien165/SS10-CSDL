@@ -1,19 +1,16 @@
-
-use world;
-
--- 1,
--- Import table database
-
+USE world;
 -- 2,
-DELIMITER //
-create procedure pro_infor( in country_code int)
-begin
-	select c.id, c.name, c.population from city c;
-end;
-DELIMITER//
+DELIMITER $$
+CREATE PROCEDURE pro_infor(IN country_code VARCHAR(3))  
+BEGIN  
+    SELECT c.ID, c.Name, c.Population  
+    FROM city c  
+    WHERE c.CountryCode = country_code;  
+END $$  
+DELIMITER ; 
 
 -- 3,
-call pro_infor(1);
+CALL pro_infor('USA');
 
 -- 4,
 drop procedure pro_infor;
